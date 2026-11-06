@@ -1,0 +1,7 @@
+# ediarum.id prefixes for the workshop project, as in ediarum.id's projects.toml.
+
+[avhr]
+label = "edition humboldt digital (Workshop)"
+prefix = "H"
+
+# --- added by scripts/new-project (removed again by reset) ---

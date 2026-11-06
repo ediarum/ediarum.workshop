@@ -1,0 +1,417 @@
+# The ediarum workshop stack: platform, webdav (auth provider + WebDAV for oXygen), fileservice,
+# id and index behind one proxy on 127.0.0.1:${PORT}, with a local MariaDB and a local git server
+# instead of the hosted database and GitLab. Start with start.sh (Windows: in Git Bash; it passes
+# --env-file workshop.env --env-file sources.env). See README.md.
+#
+# Service definitions follow ediarum-platform's compose.yaml + deploy/compose.apps.yaml and
+# ediarum.webdav's compose.yaml (copied, not included: image, database, repositories volume and
+# settings differ, see README.md, "How it differs from the instance").
+#
+# Images are built from the sources named in sources.env (local checkouts or git URLs).
+#
+# The workshop project is app-led (seed/seed-webdav.php): ediarum.index keeps its registers and
+# asks ediarum.id for the id of every entry created in the Index app (ID_URL, ID_KEY); the texts
+# stay TEI files, edited in oXygen. The registers are loaded once by [index-import]; an app-led
+# project needs no index watcher, so none runs.
+#
+# The fixed keys (workshop.env) are valid for every project, not just ${PROJECT}: an extra, empty
+# project can be added at runtime through the WebDAV app, see NEW-PROJECT.md.
+#
+# Start order (one-shots in brackets):
+#   db, gitserver → [repos-init] → [webdav-migrate] → webdav → [webdav-seed]
+#   → fileservice (first fill from gitserver) → [fileservice-keys]
+#   → id-api, index-api (migrate) → [index-keys], [index-import] → id-watcher → proxy
+
+name: ediarum-workshop
+
+x-service: &service
+  restart: unless-stopped
+  logging:
+    driver: json-file
+    options: { max-size: "10m", max-file: "3" }
+
+# Internal URLs, as reachable from the containers.
+x-platform-env: &platform-env
+  AUTH_VERIFY_URL: http://webdav:8080/api/auth/verify
+  PLATFORM_PROJECTS_URL: http://webdav:8080/api/auth/service/projects
+  PLATFORM_SERVICE_TOKEN: ${PLATFORM_SERVICE_TOKEN:?run with --env-file workshop.env}
+
+# --- webdav (from ediarum.webdav's compose.yaml) ------------------------------------------------
+
+x-webdav-env: &webdav-env
+  APP_NAME: "Ediarum Webdav"
+  APP_KEY: ${WEBDAV_APP_KEY}
+  APP_ENV: production
+  APP_DEBUG: "false"
+  APP_URL: http://localhost:${PORT}
+  # the proxy strips /webdav before /connection/<slug>
+  APP_SUBPATH: /webdav
+  ADMIN_PANEL_ENABLED: "true"
+  TRUSTED_PROXIES: "*"
+  DB_CONNECTION: mysql
+  DB_HOST: db
+  DB_PORT: "3306"
+  DB_DATABASE: webdav
+  DB_USERNAME: webdav
+  DB_PASSWORD: ${DB_PASSWORD}
+  QUEUE_CONNECTION: database
+  CACHE_DRIVER: database
+  SESSION_DRIVER: database
+  BROADCAST_DRIVER: log
+  LOG_CHANNEL: stderr
+  LOG_LEVEL: info
+  SESSION_COOKIE: ediarum_session
+  SESSION_LIFETIME: "720"
+  # plain HTTP on localhost
+  SESSION_SECURE_COOKIE: "false"
+  REPOSITORIES_DIRECTORY: /data/repositories
+  GIT_PATH: git
+  APP_GIT_USER_NAME: ediarum.webdav
+  APP_GIT_USER_EMAIL: workshop@example.org
+  GITLAB_PUSH_TIMEOUT: "60"
+  # the workshop login, created on the first start
+  INITIAL_USER_NAME: ${WORKSHOP_USER_NAME}
+  INITIAL_USER_EMAIL: ${WORKSHOP_USER_EMAIL}
+  INITIAL_USER_PASSWORD: ${WORKSHOP_USER_PASSWORD}
+  # every saved change → fileservice; ediarum.id follows through its watcher
+  EDIARUM_SERVICES_URL: http://fileservice:8000
+  EDIARUM_SERVICES_API_KEY: ${FILESERVICE_WEBDAV_KEY}
+  SERVICE_TOKEN: ${PLATFORM_SERVICE_TOKEN}
+  MAIL_MAILER: log
+  PHP_OPCACHE_ENABLE: "1"
+  PROJECT: ${PROJECT}
+  PROJECT_NAME: ${PROJECT_NAME}
+
+x-webdav-app: &webdav-app
+  <<: *service
+  image: ediarum-workshop/webdav:local
+  environment: *webdav-env
+  volumes:
+    - webdav_repositories:/data/repositories
+  depends_on:
+    webdav-migrate: { condition: service_completed_successfully }
+
+# --- id and index ---------------------------------------------------------------------------------
+
+x-id: &id
+  <<: *service
+  image: ediarum-workshop/id:local
+  environment:
+    <<: *platform-env
+    DATABASE_URL: sqlite:////data/database.db
+    XML_MOUNT_ROOT: /data/xml
+    EDIARUM_ID_CONFIG: /app/projects.toml
+    EDIARUM_ID_KEYS: /tmp/keys.toml
+    ROOT_PATH: /api/id
+    FILESERVICE_URL: http://fileservice:8000
+    FILESERVICE_KEY: ${FILESERVICE_ADMIN_KEY}
+    RECONCILE_INTERVAL: ${RECONCILE_INTERVAL}
+    ID_OXYGEN_KEY: ${ID_OXYGEN_KEY}
+    INDEX_ID_KEY: ${INDEX_ID_KEY}
+    PROJECT: ${PROJECT}
+  volumes:
+    - ./config/id/projects.toml:/app/projects.toml:ro
+    - xml:/data/xml:ro
+    - id_data:/data
+
+x-index: &index
+  <<: *service
+  image: ediarum-workshop/index:local
+  environment:
+    <<: *platform-env
+    DATABASE_URL: mysql+pymysql://index:${DB_PASSWORD}@db:3306/ediarum_index?charset=utf8mb4
+    XML_MOUNT_ROOT: /data/xml
+    ROOT_PATH: /api/index
+    BACKUP_DIR: /backups
+    FILESERVICE_URL: http://fileservice:8000
+    FILESERVICE_KEY: ${FILESERVICE_ADMIN_KEY}
+    RECONCILE_INTERVAL: ${RECONCILE_INTERVAL}
+    # entries created in the Index app get their source_id (the xml:id texts reference) here
+    ID_URL: http://id-api:8000
+    ID_KEY: ${INDEX_ID_KEY}
+  volumes:
+    - xml:/data/xml:ro
+    - index_backups:/backups
+
+services:
+
+  # --- entry point ---------------------------------------------------------------------------------
+
+  proxy:
+    <<: *service
+    image: nginx:1.29-alpine
+    ports:
+      - "127.0.0.1:${PORT}:80"
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    # Everything long-running, so `up --wait proxy` (start.sh) waits for the whole stack; the
+    # one-shots are dependencies of these.
+    depends_on:
+      platform: { condition: service_started }
+      webdav: { condition: service_started }
+      webdav-queue: { condition: service_started }
+      webdav-scheduler: { condition: service_started }
+      fileservice: { condition: service_started }
+      id-api: { condition: service_started }
+      id-watcher: { condition: service_started }
+      id-frontend: { condition: service_started }
+      index-api: { condition: service_started }
+      index-frontend: { condition: service_started }
+      # the one-shots nothing long-running depends on
+      index-keys: { condition: service_completed_successfully }
+      index-import: { condition: service_completed_successfully }
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  platform:
+    <<: *service
+    image: ediarum-workshop/platform:local
+    build: ${PLATFORM_BUILD:?see sources.env}
+    volumes:
+      - ./config/apps.json:/usr/share/nginx/html/config/apps.json:ro
+
+  # --- infrastructure ------------------------------------------------------------------------------
+
+  # One MariaDB for webdav and index (db/init.sql creates both databases).
+  db:
+    <<: *service
+    image: mariadb:11
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+
+  # Stands in for GitLab: webdav clones and pushes here, fileservice clones from here.
+  gitserver:
+    <<: *service
+    image: ediarum-workshop/gitserver:local
+    build: ./gitserver
+    environment:
+      PROJECT: ${PROJECT}
+    volumes:
+      - ./dataset/${PROJECT}:/seed:ro
+      - git_data:/srv/git
+
+  # --- webdav ----------------------------------------------------------------------------------------
+
+  # The repositories volume belongs to www-data (uid 33) in the webdav image.
+  repos-init:
+    image: alpine:3.20
+    restart: "no"
+    command: ["chown", "33:33", "/data/repositories"]
+    volumes:
+      - webdav_repositories:/data/repositories
+
+  webdav-migrate:
+    image: ediarum-workshop/webdav:local
+    build: ${WEBDAV_BUILD:?see sources.env}
+    restart: "no"
+    environment: *webdav-env
+    command: ["sh", "-c", "php artisan migrate --force && php artisan db:seed --force"]
+    healthcheck:
+      disable: true
+    depends_on:
+      db: { condition: service_healthy }
+      repos-init: { condition: service_completed_successfully }
+
+  webdav:
+    <<: *webdav-app
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "-o", "/dev/null", "http://localhost:8080/api/auth/csrf-cookie"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 10s
+
+  webdav-queue:
+    <<: *webdav-app
+    command: ["php", "artisan", "queue:work", "--queue=default,gitlab,ediarum-services,exist-db"]
+    stop_signal: SIGTERM
+    stop_grace_period: 30s
+    healthcheck:
+      test: ["CMD", "healthcheck-queue"]
+      start_period: 10s
+
+  webdav-scheduler:
+    <<: *webdav-app
+    command: ["php", "artisan", "schedule:work"]
+    stop_signal: SIGTERM
+    healthcheck:
+      test: ["CMD", "healthcheck-schedule"]
+      start_period: 10s
+
+  # Creates and clones the workshop project once (seed/seed-webdav.php).
+  webdav-seed:
+    image: ediarum-workshop/webdav:local
+    restart: "no"
+    environment: *webdav-env
+    command: ["php", "/workshop/seed-webdav.php"]
+    healthcheck:
+      disable: true
+    volumes:
+      - webdav_repositories:/data/repositories
+      - ./seed/seed-webdav.php:/workshop/seed-webdav.php:ro
+    depends_on:
+      webdav-migrate: { condition: service_completed_successfully }
+      gitserver: { condition: service_healthy }
+
+  # --- fileservice: the only writer of the xml volume ----------------------------------------------
+
+  # Clones every registry project once on start, so it starts after webdav knows the project.
+  fileservice:
+    <<: *service
+    image: ediarum-workshop/fileservice:local
+    build: ${FILESERVICE_BUILD:?see sources.env}
+    environment:
+      <<: *platform-env
+      XML_MOUNT_ROOT: /data/xml
+      DATABASE_URL: sqlite:////data/fileservice.db
+      # no backup checks during the workshop
+      CHECK_TIMES: ""
+    # A project added with its own repository (NEW-PROJECT.md): scripts/new-project.sh writes the
+    # token to secrets/git_token (read by the image's git credential helper) and its user name to
+    # secrets/git.env (GIT_TOKEN_USER, default oauth2). Without them git sends no credentials, and
+    # the workshop's own git server asks for none.
+    env_file:
+      - path: ./secrets/git.env
+        required: false
+    volumes:
+      - xml:/data/xml
+      - fileservice_data:/data
+      - ./secrets:/run/secrets:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    depends_on:
+      webdav: { condition: service_healthy }
+      webdav-seed: { condition: service_completed_successfully }
+      gitserver: { condition: service_healthy }
+
+  fileservice-keys:
+    image: ediarum-workshop/fileservice:local
+    restart: "no"
+    environment:
+      DATABASE_URL: sqlite:////data/fileservice.db
+      FILESERVICE_WEBDAV_KEY: ${FILESERVICE_WEBDAV_KEY}
+      FILESERVICE_ADMIN_KEY: ${FILESERVICE_ADMIN_KEY}
+    command:
+      - python
+      - /workshop/seed_keys.py
+      - webdav=FILESERVICE_WEBDAV_KEY:*
+      - workshop-admin=FILESERVICE_ADMIN_KEY:*:admin
+    volumes:
+      - fileservice_data:/data
+      - ./seed/seed_keys.py:/workshop/seed_keys.py:ro
+    depends_on:
+      fileservice: { condition: service_healthy }
+
+  # --- id ------------------------------------------------------------------------------------------
+
+  # keys.toml is written on every start (ediarum.id reads it add-only): oXygen's key, and
+  # index's, which reserves and confirms the ids of entries created in the Index app. Both
+  # without a projects list, i.e. for every project, so a project added later (NEW-PROJECT.md)
+  # works with them too; ediarum.id still serves only the projects in config/id/projects.toml.
+  id-api:
+    <<: *id
+    build: ${ID_BUILD:?see sources.env}
+    command:
+      - sh
+      - -c
+      - >-
+        printf '[oxygen-workshop]\nkey = "%s"\n\n[index]\nkey = "%s"\n'
+        "$$ID_OXYGEN_KEY" "$$INDEX_ID_KEY" > /tmp/keys.toml
+        && exec ediarum-id serve --host 0.0.0.0 --port 8000
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/projects', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 5s
+    depends_on:
+      webdav: { condition: service_healthy }
+
+  id-watcher:
+    <<: *id
+    command: ["ediarum-id", "watch"]
+    depends_on:
+      id-api: { condition: service_healthy }
+      fileservice-keys: { condition: service_completed_successfully }
+
+  id-frontend:
+    <<: *service
+    image: ediarum-workshop/id-frontend:local
+    build: ${ID_FRONTEND_BUILD:?see sources.env}
+
+  # --- index ---------------------------------------------------------------------------------------
+
+  # Migrates the database on start, and mirrors the project registry (so after webdav-seed).
+  index-api:
+    <<: *index
+    build: ${INDEX_BUILD:?see sources.env}
+    command: ["ediarum-index", "serve", "--host", "0.0.0.0", "--port", "8000"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/openapi.json', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 10s
+    depends_on:
+      db: { condition: service_healthy }
+      webdav: { condition: service_healthy }
+      webdav-seed: { condition: service_completed_successfully }
+      id-api: { condition: service_healthy }
+
+  index-keys:
+    image: ediarum-workshop/index:local
+    restart: "no"
+    environment:
+      DATABASE_URL: mysql+pymysql://index:${DB_PASSWORD}@db:3306/ediarum_index?charset=utf8mb4
+      INDEX_OXYGEN_KEY: ${INDEX_OXYGEN_KEY}
+    command: ["python", "/workshop/seed_keys.py", "oxygen-workshop=INDEX_OXYGEN_KEY:*"]
+    volumes:
+      - ./seed/seed_keys.py:/workshop/seed_keys.py:ro
+    depends_on:
+      index-api: { condition: service_healthy }
+
+  # Loads the registers from data/Register once, as an app-led project starts from its register
+  # XML. Skipped once the project has entries.
+  index-import:
+    <<: *index
+    restart: "no"
+    command: ["python", "/workshop/import_registers.py", "${PROJECT}"]
+    volumes:
+      - xml:/data/xml:ro
+      - ./seed/import_registers.py:/workshop/import_registers.py:ro
+    healthcheck:
+      disable: true
+    depends_on:
+      index-api: { condition: service_healthy }
+      fileservice: { condition: service_healthy }
+
+  # No index-watcher: it ingests XML-led projects only, and the workshop project is app-led.
+
+  index-frontend:
+    <<: *service
+    image: ediarum-workshop/index-frontend:local
+    build: ${INDEX_FRONTEND_BUILD:?see sources.env}
+
+volumes:
+  db_data:
+  git_data:
+  webdav_repositories:
+  xml:
+  fileservice_data:
+  id_data:
+  index_backups:

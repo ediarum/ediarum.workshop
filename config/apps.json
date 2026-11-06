@@ -1,0 +1,23 @@
+[
+  {
+    "id": "index",
+    "label": "Index",
+    "entry": "/apps/index/embed.js",
+    "apiBase": "/api/index",
+    "roles": []
+  },
+  {
+    "id": "id",
+    "label": "IDs",
+    "entry": "/apps/id/embed.js",
+    "apiBase": "/api/id",
+    "roles": ["admin"]
+  },
+  {
+    "id": "webdav",
+    "label": "WebDAV",
+    "entry": "/apps/webdav/embed.js",
+    "apiBase": "/api/webdav",
+    "roles": ["admin"]
+  }
+]

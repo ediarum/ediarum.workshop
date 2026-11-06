@@ -1,0 +1,46 @@
+# Builds the generated folders (dataset/, oxygen/) with scripts/prepare.sh and ships them.
+#
+#   every push / PR   workflow artifact workshop-generated (expires after a week)
+#   tag v…            a GitHub Release with workshop-generated.tar.gz, which start.sh
+#                     downloads from GENERATED_URL (sources.env). The tag comes from
+#                     scripts/release.sh (scripts/publish.sh pushes it).
+name: workshop
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # to create the release
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build dataset/ and oxygen/
+        run: scripts/prepare.sh
+
+      - name: Pack them
+        run: scripts/package-generated.sh "${{ github.ref_type == 'tag' && github.ref_name || '' }}"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: workshop-generated
+          path: dist/workshop-generated.tar.gz
+          retention-days: 7
+
+      # safe to re-run: creates the release once, replaces the file
+      - name: Release
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" \
+            --title "ediarum workshop $TAG" \
+            --notes "Download the source code of this release, unpack it and follow README.md. start.sh fetches workshop-generated.tar.gz itself."
+          gh release upload "$TAG" dist/workshop-generated.tar.gz --clobber

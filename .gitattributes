@@ -1,0 +1,11 @@
+# Shell scripts, Dockerfiles and configs run inside Linux containers: keep LF on Windows checkouts
+# (core.autocrlf=true would turn them into CRLF, and `sh` chokes on the trailing \r).
+*.sh         text eol=lf
+*.py         text eol=lf
+*.sql        text eol=lf
+*.conf       text eol=lf
+*.env        text eol=lf
+*.toml       text eol=lf
+*.yaml       text eol=lf
+*.yml        text eol=lf
+Dockerfile   text eol=lf
