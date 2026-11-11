@@ -1,0 +1,188 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:telota="http://www.telota.de" telota:doctype="letter avhr" oldID="avh-eb_17" xml:id="H0016742">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Alexander von Humboldt an Christian Gottfried Ehrenberg. [Berlin], [wohl um 1829] </title>
+            <editor>
+               <persName ref="http://d-nb.info/gnd/13699220X">
+                  <surname>Wendt</surname>
+                  <forename>Anette</forename>
+               </persName>
+            </editor>
+            <respStmt>
+               <persName ref="http://d-nb.info/gnd/115726071">
+                  <surname>Knobloch</surname>
+                  <forename>Eberhard</forename>
+               </persName>
+               <resp>
+                  <note type="remarkResponsibility">Mitarbeit</note>
+               </resp>
+            </respStmt>
+            <respStmt>
+               <persName>
+                  <surname>Kirsten</surname>
+                  <forename>Linda</forename>
+               </persName>
+               <resp>
+                  <note type="remarkResponsibility">Mitarbeit</note>
+               </resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+               <ref target="http://www.bbaw.de">Berlin-Brandenburgische Akademie der Wissenschaften
+                  (BBAW)</ref>
+            </publisher>
+            <pubPlace key="http://www.geonames.org/2950159">Berlin</pubPlace>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc rend="manuscript">
+               <msIdentifier>
+                  <institution>Berlin-Brandenburgische Akademie der Wissenschaften</institution>
+                  <repository>Archiv</repository>
+                  <collection>NL C. G. Ehrenberg</collection>
+                  <idno>
+                     <idno type="legacy">17</idno>
+                     <idno type="shelfmark">421, Bl. 28r-29v</idno>
+                  </idno>
+               </msIdentifier>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <correspDesc>
+            <correspAction type="sent">
+               <persName key="H0012069">Alexander von Humboldt</persName>
+               <placeName key="H0005221" evidence="conjecture">Berlin</placeName>
+               <date notBefore="1829" notAfter="1829" cert="low">1829-00-00</date>
+            </correspAction>
+            <correspAction type="received">
+               <persName key="H0005875">Christian Gottfried Ehrenberg</persName>
+            </correspAction>
+            <note>Zur Datierung: 1829 von fremder Hand</note>
+         </correspDesc>
+         <langUsage>
+            <language scope="sole" ident="deu"/>
+         </langUsage>
+      </profileDesc>
+   </teiHeader>
+   <text>
+      <!-- Faksimiles unter https://edition-humboldt.de/briefe/detail.xql?id=H0016742 -->
+      <body>
+         <div type="writingSession">
+            <pb n="1r"/><opener><dateline rend="align(right)">Dienstags 11 Uhr.</dateline></opener>
+            <p>Ich werde Ihnen Ihre <lb/>schöne überaus interessante <lb/>Karte selbst zurükbringen
+               <lb/>mein verehrter Freund. <lb/>Wie können Sie glau<lb break="no"/>ben dass ich mich
+               nicht <lb/>freuen sollte, so <lb/>wichtige topographische <lb/>Materialien dem
+                  Publi<lb break="no"/>kum übergeben zu sehen<supplied cert="high">.</supplied>
+               <lb/>Eine solche Kenntniss der <lb/>Localität wird von großem <lb/>Nuzen sein, selbst
+               <lb/>wenn nach 50 <choice>
+                  <abbr>od</abbr>
+                  <expan>oder</expan>
+               </choice> 100 <lb/>Jahren man einmal <lb/>in diesen der Barbarei <lb/>preiß gegebenen
+               Gegenden <lb/>wird eine wirkliche trigo<lb break="no"/>nometrische Aufnahme
+               <lb/>machen können. Ich freue <lb/><pb n="1v"/>mich einer solchen Arbeit
+                  <lb/>sehr<supplied cert="high">.</supplied> Sie haben an <lb/>Herrn <choice>
+                  <abbr>v.</abbr>
+                  <expan>von</expan>
+               </choice>
+               <persName key="H0995578">Möllendorf</persName> einen <lb/>geschikkten Mitarbeiter
+               <lb/>gefunden, nur muß <lb/>das Ganze im Stich <lb/>wieder schwarz gehal<lb break="no"/>ten werden<supplied cert="high">.</supplied> Mündlich <lb/>(ich werde
+               Sie morgen <lb/>früh besuchen) sagen <lb/>Sie mir wohl ob <lb/>Sie zur Küste
+               <lb/>etwa <seg type="comment">
+                  <orig><choice>
+                        <abbr>Capit</abbr>
+                        <expan>Capitän</expan>
+                     </choice>
+                     <persName key="H0016904">Gautiers</persName>
+                     <lb/>neueste Aufnahmen <lb/>der <choice>
+                        <abbr>Mittell.</abbr>
+                        <expan>Mittelländischen</expan>
+                     </choice> Küste</orig>
+                  <note xml:id="avhrd1e75">
+                     <bibl sameAs="zotero-667230-42IRPBAF">D'Arc du Lys/Édouard 1830</bibl>
+                  </note>
+               </seg>
+               <lb/><choice>
+                  <abbr>od</abbr>
+                  <expan>oder</expan>
+               </choice> etwas <seg type="comment">
+                  <orig>Notizen <lb/>von <persName key="H0011210">Oltmann</persName></orig>
+                  <note xml:id="avhrd1e81">
+                     <bibl sameAs="zotero-667230-LYNDEX7L">Oltmanns 1826</bibl></note>
+               </seg> für <lb/><add place="intralinear">erste</add> Lage <choice>
+                  <abbr>u</abbr>
+                  <expan>und</expan>
+               </choice> Variation <lb/>der Nadel haben <lb/>brauchen können. Es <lb/>ist immer gut
+               sich <lb/>an schon vorhandene <lb/>Punkte anzuschließen <lb/><pb n="2r"/>und die
+               Küste wie die <lb/>Situation <choice>
+                  <abbr>v</abbr>
+                  <expan>von</expan>
+               </choice>
+               <placeName key="H0005042">Balbek</placeName>
+               <lb/>(von <placeName key="H0017209">Sichem</placeName>?) wird <lb/>bei der Kritik wie
+               <lb/>Sie wissen immer zu <lb/>erst geprüft, obgleich <lb/>das wichtigste immer
+               <lb/>Ihr Schaz von Local<lb break="no"/>beobachtungen über das <lb/>Gebirge ist.
+               Lassen <lb/>Sie ja auch den <lb/><placeName key="H0010249">Sinai</placeName> so
+                  bearbeiten<supplied cert="high">.</supplied></p>
+            <p><persName key="H0014239">Minutoli’s</persName> Streit <lb/>mit Ihnen, schlichten
+               <lb/>Sie ja, so Sie es <lb/>können, ohne der <lb/>edlen Unabhängigkeit <lb/>Ihres
+               Charakters im <lb/>geringsten zu schaden<supplied cert="high">.</supplied>
+               <lb/>Ich habe den <persName key="H0014239">General</persName>
+               <lb/>heute morgen ver<lb break="no"/>mocht, sich mit der <lb/>von Ihnen an <choice>
+                  <abbr>Prof</abbr>
+                  <expan>Professor</expan>
+               </choice>
+               <lb/><persName key="H0015282">Ideler</persName> gesandten Er<g ref="#typoHyphen"/><lb break="no"/>klärung vollkommen <lb/>zu begnügen. Er hält <lb/><pb n="2v"/>nun den
+               projectirten <lb/>Aufsaz in der <choice>
+                  <abbr>Allg</abbr>
+                  <expan>Allgemeinen</expan>
+               </choice>
+               <lb/>Zeitung (der noch nicht <lb/>abgesandt war <choice>
+                  <abbr>u</abbr>
+                  <expan>und</expan>
+               </choice> den <lb/>ich heute in Händen <lb/>gehabt) zurük <choice>
+                  <abbr>u</abbr>
+                  <expan>und</expan>
+               </choice> er<lb break="no"/>klärt dass er die Sache <lb/>als völlig abgemacht
+               <lb/>betrachte. Ich habe <lb/>diese Gegenerklärung <lb/>des <persName key="H0014239">Generals</persName> eben <lb/>an <choice>
+                  <abbr>Prof</abbr>
+                  <expan>Professor</expan>
+               </choice>
+               <persName key="H0015282">Ideler</persName> geschikkt <lb/>von dem Sie Sie
+               <lb/>erhalten sollen<supplied cert="high">.</supplied> Ich <lb/>danke Ihnen für
+                  die<lb break="no"/>se Beendigung der Sache <lb/>die Ihnen Ihre kost<lb break="no"/>barste Zeit raubt<lb break="no"/>Ihre Phan<supplied cert="high">tasie</supplied>
+                  unange<lb break="no"/>nehm besch<supplied cert="high">äftig</supplied>t <choice>
+                  <abbr>u</abbr>
+                  <expan>und</expan>
+               </choice> Sie <lb/>gezwungen ha<supplied cert="high">ben</supplied> wird <lb/>vieles
+               vor da<supplied cert="high">s</supplied> Publi<lb break="no"/>kum zu bringen, was
+               <lb/>selbst der Akademie <lb/><choice>
+                  <abbr>u</abbr>
+                  <expan>und</expan>
+               </choice> dem Gouvernement <lb/>unangenehm sein wird. <lb/>Jeder wird Ihre Art
+               <lb/><metamark/>fest <choice>
+                  <abbr>u</abbr>
+                  <expan>und</expan>
+               </choice> edel in der Sache <lb/>gehandelt zu haben, mit mir loben<supplied cert="high">.</supplied>
+               <lb/>Der <persName key="H0014239">General</persName> wünscht daß Ihre Er<lb break="no"/>klärung an der er nicht eine <lb/>Silbe zu ändern findet, in der
+                  <lb/><seg type="comment">
+                  <orig>Spenerschen Zeitung</orig>
+                  <note xml:id="avhrd1e113">
+                     <bibl sameAs="zotero-667230-V4HNYC4H">Haude/Spener 1740-1874</bibl>
+                  </note>
+               </seg> eingerükt werde<supplied cert="high">.</supplied>
+               <lb/>Lachen Sie über den Spenerschen Pro<g ref="#typoHyphen"/><lb break="no"/>fessor!
+               Wir kennen den <lb/>Mann.</p>
+            <closer rend="within the line"><signed>AHt.</signed>
+            </closer>
+            <postscript>
+               <?oxy_comment_start author="lkirsten" timestamp="20180904T141129+0200" comment="Nochmal prüfen ob tatsächlich PS"?>
+               <p>Ich habe nicht <lb/>Zeit heute <lb/>morgen Sie <lb/>zu besuchen, da <lb/>ich 11 h
+                  ½ zum <lb/><persName key="H0002177">König</persName> zum déjeu<lb break="no"/>ner
+                  dansant muß.<?oxy_comment_end?></p>
+            </postscript>
+         </div>
+      </body>
+   </text>
+</TEI>

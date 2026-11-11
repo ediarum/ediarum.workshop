@@ -1,0 +1,376 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:telota="http://www.telota.de" telota:doctype="adjutantenjournal_mop" oldID="mop_fvt_hkj_3bb" xml:id="P0000949">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                
+                <title/>
+                
+            </titleStmt>
+            <editionStmt>
+                <edition>
+                    <title>Anpassungsstrategien der späten mitteleuropäischen Monarchie am
+                        preußischen Beispiel 1786-1918</title>
+                </edition>
+            </editionStmt>
+            <publicationStmt xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <publisher>Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</publisher>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by-sa/4.0">CC
+                        BY-SA</licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <msDesc rend="journal">
+                    <msIdentifier>
+                        <institution>GStA PK</institution>
+                        <idno><idno type="shelfmark">BPH, Rep. 50, F I Nr. 3 Bd. 7, Bl.
+                                1v–20v</idno></idno>
+                    </msIdentifier>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <creation>
+                <date from="1848-03-17" to="1848-03-22"/>
+            </creation>
+        </profileDesc>
+    </teiHeader>
+    <text type="journal">
+        <body>
+            <div type="tag"><dateline><date when="1848-03-17"/>Berlin:
+                        Schloss</dateline>
+                <div type="journalText">
+                    <div type="writingSession" n="1">
+                        <ab type="author">
+                            Brauchitsch, Eduard August von
+                                (1798-1869)
+                        </ab>
+                        <p>Um ½ 9 Uhr sprach des Königs Majestät in der Halle den Ober-Ceremon.
+                            Mstr. Gr. Pourtales; gleich danach
+                            den Herrn Humbold im Kabinett, dann
+                            den Minister vThile eben daselbst;
+                            frühstückte dann in wenigen Minuten und präsidirte alsbald einer
+                            Conferenz der: Minister Thile, Bodelschwingh, des Gouverneurs Gen. der Inf. vPfuel u des Polizei Präsidenten vMinutolli, zu der auch später Sr. Königl.
+                            Hoh. der Prinz von Preußen kam u in
+                            welcher der König Seine Befehle auf das entschiedenste aussprach, wie Er
+                            wolle, daß fernerhin gegen die Tumultuanten verfahren werden solle, auch
+                            in Beziehung auf den Einfluß der Schutz-Commissionen pp Nach der
+                            Conferenz gab der König die Parole aus, wobei sich S. K. H. der
+                                Prinz Waldemar zum Abgange nach
+                                Münster, der General vWussow als Chef des Stabes des Prinzen
+                            von Preußen meldete. Letzteren empfing der König dan̅ allein im Kabinett
+                            längre Zeit u nahm dann aus den Händen des OberstallMstr vAlvensleben einen Brief seines Herrn, des
+                                Herzogs von Coburg-Gotha u den
+                            Bericht über die dortigen trostlosen Zustände entgegen u wohnte dann
+                            einer Conferenz bei, die gebildet war vom Prinzen von Preußen u den
+                            Ministern Thile, Bodelschwingh, Uhden, vCanitz u
+                                Savigni, die von ½ 12 bis ½ 3
+                            Uhr währte, worauf der König nach dem Thiergarten fuhr, vom Kämpfer bis zur Fasanerie zu Fuß
+                            ging u den neuen Weg längs dem Kanal u durch das Potsdamer Thor zurückehrte, darauf den
+                            General vNeumann empfing u um ¾ 4
+                            Uhr en retraite dinirte. Um 6 Uhr gab der König dem Professor Menzel aus Stuttgart eine längere Audienz; empfing dan̅ den
+                            Meklenburg Schwerinschen General vRoth u aus seinen Händen einen Brief der Herzogin von Orleans; dan̅ den Ober
+                            Präsidenten Eichman̅ der aus
+                                Coblenz angekom̅en war; dann
+                            den Gesandten v. Arnim u arbeitete
+                            dan̅ mit dem Minister vThile bis 9 Uhr; begab sich zum Thee zu Ihrer Majestät, zu dem der Gouverneur
+                                vPfuel, der Herr vHumbold u Herr
+                            vArnim geladen waren, sprach dan̅ den Polizei Präsidenten vMinutolli u nahm dessen Meldung entgegen,
+                            daß es in der Stadt vollkom̅en ruhig sey u kein Tumult mehr zu erwarten,
+                            eine Nachricht die noch mehr Gewähr dadurch erhielt, daß sich nunmehr
+                            auch das gesam̅te Schlächter-Mauer- u Zim̅er-Gewerk den
+                            Schutz-Com̅issionen zur Aufrechthaltung der Ruhe angeschlossen habe.
+                            Ersteres war auf dem Schloßplatz in corpore aufmarschiert, ward aber
+                            sofort entlassen, da man es heute nicht wieder bedurfte. Der König
+                            ertheilte den Befehl, daß morgen die beiden Bataillone des Ersten Garde
+                            Rgmts zf. nach Potsdam zurückehren sollten, was um so leichter geschehen
+                            kon̅te, da heute bereits </p><table rows="6" cols="9">
+                            <row>
+                                <cell>das</cell>
+                                <cell> 1<hi rendition="#sup">te</hi></cell>
+                                <cell>und</cell>
+                                <cell>2<hi rendition="#sup">te</hi></cell>
+                                <cell>Bataillon</cell>
+                                <cell>2<hi rendition="#sup">ten</hi></cell>
+                                <cell>Infanterie</cell>
+                                <cell>Regiments</cell>
+                                <cell>in Charlottenburg</cell>
+                            </row>
+                            <row>
+                                <cell>„</cell>
+                                <cell>2<hi rendition="#sup">t</hi></cell>
+                                <cell>u</cell>
+                                <cell>Füsülier</cell>
+                                <cell>„</cell>
+                                <cell>8<hi rendition="#sup">te</hi></cell>
+                                <cell>„</cell>
+                                <cell>d[it]o</cell>
+                                <cell>in Weissensee u
+                                        Lichtenberg</cell>
+                            </row>
+                            <row>
+                                <cell>„</cell>
+                                <cell>1<hi rendition="#sup">te</hi></cell>
+                                <cell/>
+                                <cell/>
+                                <cell>„</cell>
+                                <cell>8<hi rendition="#sup">te</hi></cell>
+                                <cell>„</cell>
+                                <cell>do</cell>
+                                <cell>in Rixdorf, Treptow u Britz</cell>
+                            </row>
+                            <row>
+                                <cell>„</cell>
+                                <cell>1<hi rendition="#sup">te</hi></cell>
+                                <cell/>
+                                <cell/>
+                                <cell>„</cell>
+                                <cell>12<hi rendition="#sup">te</hi></cell>
+                                <cell>„</cell>
+                                <cell>do</cell>
+                                <cell>in Tempelhoff,
+                                        Mariendorff u
+                                        Lankwitz</cell>
+                            </row>
+                            <row>
+                                <cell>„</cell>
+                                <cell>2<hi rendition="#sup">te</hi></cell>
+                                <cell/>
+                                <cell/>
+                                <cell>„</cell>
+                                <cell>12<hi rendition="#sup">te</hi></cell>
+                                <cell>„</cell>
+                                <cell>do</cell>
+                                <cell>in Friedrichsfelde,
+                                        Marzahn u Hoh. Schönhausen</cell>
+                            </row>
+                            <row>
+                                <cell>„</cell>
+                                <cell>Füsilier</cell>
+                                <cell/>
+                                <cell/>
+                                <cell>„</cell>
+                                <cell>12<hi rendition="#sup">te</hi></cell>
+                                <cell>„</cell>
+                                <cell>do</cell>
+                                <cell>in Schöneberg,
+                                        Steglitz u Willmersdorf</cell>
+                            </row>
+                        </table>
+                        <p>also Sum̅a 8 Bataillone in der Umgegend zur eventuellen Verstärkung der
+                            Berliner Garnison eingerückt waren. Zur Besetzung des Schloßes blieben für die Nacht außer den
+                            verstärkten Wachen wieder Ein Bataillon (2<hi rendition="#sup">t</hi>
+                            Garde Regmts zFuß) u Eine Eskadron (2<hi rendition="#sup">t</hi> Garde
+                            Ulan. Landw. Rgmts.) auf den beiden Schloßhöfen stehen. In der Stadt war
+                            die tiefste Ruhe. - </p></div></div></div>
+            <div type="tag"><dateline><date when="1848-03-18"/>Berlin:
+                        Schloss</dateline>
+                <div type="journalText">
+                    <div type="writingSession" n="1">
+                        <ab type="author">
+                            Schoeler, Ludwig Johann Wilhelm AUGUST von
+                                (1798-1866)
+                        </ab>
+                        <p>General v Ditfurth erschien schon um
+                            ½ 8 Uhr mit der Meldung daß die beiden hier anwesenden Bataillone des
+                                1<hi rendition="#sup">ten</hi> Garde-Regiments, welche heute wieder
+                            abmarschiren sollten, Gegen-Befehl erhalten müßen, indem sehr ernste
+                            Auftritte erwartet werden. Das 2<hi rendition="#sup">t</hi> Bataillon
+                                1<hi rendition="#sup">t</hi> Garde und das 1<hi rendition="#sup"
+                                >te</hi> Bataillon des Kaiser-Franz-Grenadier-Regiments stehn
+                            bereits im Schloß. Ein Schwadron Ulanen soll anrücken. Der König, noch
+                            bei der Toilette, konnte den General nicht Selbst sprechen und befahl
+                            sein baldiges Wiederkommen in Gesellschaft des Gouverneurs und Polizei-Präsidenten. Auch Minister vBodelschwingh wurde nach dem Schlosse
+                            gerufen. Dieser und dann auch Minister vThile bei Sr. Majestät im runden Salon, gegen 10 Uhr.
+                            Die andern befohlenen Herrn, Ob. Präsident Eichmann, Minister Uhden, Generale v.Rauch und v. Below,
+                            u.s.w. in der Halle. Minister Graf Alvensleben, Graf Stolberg, v. Rohr.
+                            Sämmtliche genannten Minister auch Minister v
+                                    Canitz und die
+                            befohlenen Herrn gegen ½ 11 Uhr in d. neu
+                                eingerichteten Zim̅ern mit Sr. Majestät. Beim Durchgehn durch
+                            das rothe Zimmer Meldungen des Fürsten Adolph zu Hohenlohe-Inglfingen und des Oberst-Lieut.
+                                vHeister int. Kom̅andeur des
+                                11.<hi rendition="#sup">t</hi> Regts., respect aus Schlesien und von
+                                Magdeburg hier angekommen.
+                            Auch S. K. H. der Prinz von Preußen
+                            war abwechselnd bei Seiner Majestät und in der Halle. Die Minister
+                            ziehen sich zum Theil und einzeln zurück. Von ¼ bis gegen ¾ 12 Uhr eine
+                            Deputation von Cöln, im Beiseyn
+                            Sr. K. H. des Prinzen von Preußen und eingeführt von dem Ob. Präsidenten
+                            der Rhein-Provinz im rothen Zim̅er vor Seiner Majestät. Ebendaselbst von
+                            ¼ 1 bis gegen ¾ 1 die Deputation des Magistrats und der Stadt-Verordneten v. Berlin
+                            empfangen. Einige derselben - die Gesammtheit schon durch die
+                            gnädigen Worte Seiner Majestät beruhigt - verbleiben bis zur Ankunft des
+                            Minister vBodelschwingh, welcher ihnen das neue Programm der nun
+                            eintretenden Ordnung der Dinge vorließt. Enthusiastische Aeußerungen der
+                            Freude. Der Minister Graf Arnim ist
+                            zu Seiner Majestät berufen. Der Vivat! auf dem Schloß Platze und der
+                            ausgesprochene Wunsch dem Könige zu danken, veranlassen
+                            Allerhöchstdieselben inzwischen, kurz vor ½ 2 Uhr Sich auf dem Balkon zu
+                            zeigen. Darauf ermahnt Minister v Bodeslchwingh zum ruhigen
+                            Auseinandergehn. Dies fruchtete jedoch nicht. Seine Majestät erschienen
+                            noch mehre[!] Male, zogen sich indeß, der drängenden Arbeiten halber
+                            zurück. Das Volk wurde im̅er ungestümer, offenbar in böswilliger
+                            Absicht, indem die gut Gesinnten, zum Theil Mitglieder der
+                            Schutz-Kommissionen, sie vergeblich vom Eindringen en masse in den
+                            Schloßhof abzuhalten suchten. Alle Ermahnungen blieben fruchtloß.
+                            Endlich mußte Kavallerie und Infanterie vorrücken um den Schloß Platz
+                            frei zu machen. Die Kavallerie hatte dabei das Gewehr nicht aufgenommen.
+                            Leider gingen aber durch Zufall und Mißverständnis 3 Gewehre loß, jedoch
+                            ohne Schaden zu thun. Dies ward ausgebeutet. Es kamen verschiedene
+                            Anträge, im̅er darauf gerichtet: das Militair zurück zu ziehn, denen
+                            natürlich nicht Folge gegeben werden konnte. Nun entstanden Barrikaden.
+                            In der breiten Straße wehte auf einer solchen die 3 farbige Fahne. Die
+                            Truppen blieben ruhig. So ward dinirt. Die Herrschaften, Seine Majestät
+                            und die Kng. Prinzen, wie auch Prinzeß von
+                                Preußen in der Halle. Die andern verschiedenen
+                            Anwesenden, Befehlshaber der Truppen, Offz. verschiedn Minister u.s.w.
+                            wie die Umgebungen, auch Fürst Lichnowsky, Fürst Hohenlohe, Oberstlieut. vHeister pp, als Eingeladene vorn, im
+                                rothen Zim̅er. Beim Aufheben der Tafel nach
+                                4 Uhr ward von den Barrikaden nach den Truppen auf der langen
+                            Brücke gefeuert. Von diesen ward nun Artillerie vorgebracht, die erste
+                            Barrikade genommen u das Gefecht entspann sich nach u nach auf
+                            verschiedenen Punkten. Der Gouverneur war, bei dem Heraustreten unter die Menge bei
+                            den Vivats am Morgen, so in das Gedränge gerathen, daß er nicht mehr zum
+                            Schloß durchzudringen vermochte und sich erst nach seiner Wohnung
+                            begeben mußte. Seine Schildwachen wurden angegriffen, die eine getödtet
+                            und er gelangte nur mit Mühe ungefährdet bis in die Wohnung des
+                                Ober-Bürgermeisters im
+                                Fürstenhause. So war er gar
+                            nicht mehr aufzufinden und dem General vPrittwitz das Kom̅ando der Truppen übertragen worden.
+                            Während des Laufes des Gefechts, bald nach der Tafel und in
+                            Zwischenräumen, Deputationen der Professoren der Universität, dann des Magistrats (wobei der Abgeordnete
+                                Schauss, durch den Affekt,
+                            ohnmächtig, und nur mit Mühe, unter eigener Mitwirkung I. K. H. der
+                            Prinzeß von Preußen und ärztlich. Hülfe wieder zu sich gebracht wurde)
+                            u, zuletzt des Bischofs Neander mit
+                            einigen Bürgern. Alle sprechen im̅er vom Zurückziehn der Truppen und
+                            werden, nach Möglichkeit beruhigt und über die Sach-Lage aufgeklärt. Von
+                            der Letzteren ist gefordert das Aufheben der Barrikaden durch die Bürger
+                            selbst zu veranlassen. Falsche und wahre Nachrichten zeigen sich und es
+                            ist nicht möglich etwas bestim̅tes festzustellen. Der heftigste
+                            Widerstand wurde in der breiten und Brüder-Straße geleistet, wo erst
+                            nach längerer Zeit die - während der Unterhandlungen der Deputationen -
+                            mit Muße und größter Solidität errichteten Barrikaden und die besetzten
+                            Häuser überwältigt werden konnten. Dort sowohl, wie in der Königs-Straße
+                            konnte dies nicht ohne Anwendung von Artillerie bewirkt werden. Etwa
+                            gegen 11 Uhr waren die Truppen Meister[!] bis zum Alexander-Platz,
+                            Monbijou, der Kaserne des 2<hi rendition="#sup">ten</hi>
+                            Garde-Regiments, der ganzen Linden der Leipziger Straße und bis jenseits
+                            des Cölnischen Marktes. - Um ½ 11 Uhr hatte sich noch der Landrath -
+                            Landtags-Deputierte - vVinke
+                            eingestellt um ebenfalls, Seine Majestät zum Zurückziehn der Truppen zu
+                            bewegen. - Besondere Dienste leisteten: </p><p><hi rendition="#u"
+                                >Verte</hi>
+                        </p></div></div></div>
+            <div type="tag"><dateline><date when="1848-03-19"/>Berlin:
+                        Schloss</dateline>
+                <div type="journalText">
+                    <div type="writingSession" n="1">
+                        <ab type="author">
+                            Bonin, ADOLF Albert Ferdinand Karl Friedrich
+                                Leopold von (1803-1872)
+                        </ab>
+                        <p>Sr. Majestät entwerfen noch in Nacht[!] eine
+                            beruhigende Proklamation an die Bürger Berlins, die gleich gedruckt und
+                            am frühen Morgen an die Straßen angeklebt wurde. Um 6 ½ Uhr sprachen Sr.
+                            Majestät Herrn Rellstab, der später
+                            mit mehreren Bürgern Berlins sich wieder bei Sr. Majestät einfand und
+                            dann Sr. Majestät eine das innerste des Herzens bewegende Ansprache
+                            hielt und sie aufforderte sich in den Straßen zu vertheilen und Alles
+                            zur Beruhigung der Barbarei beizutragen. Sie versprachen es mit Hand und
+                            Mund und entfernten sich um ihr Mögliches zu versuchen. Das Weitere, was
+                            sich im Laufe des Tages ereignet, hat Jeder von uns zu schmerzlich und
+                            im Sturme mit durchlebt um jetzt schon davon ein ruhiges und klares Bild
+                            entwerfen zu 
+                                können
+                                Möglicherweise wurde der Rest des
+                                    Journalblattes ausnahmsweise freigelassen, um den Tageseintrag
+                                    später fertigstellen zu können. 
+                            . </p></div></div></div>
+            <div type="tag"><dateline><date when="1848-03-20"/>Berlin:
+                        Schloss</dateline>
+                <div type="journalText">
+                    <div type="writingSession" n="1">
+                        <ab type="author">
+                            Brauchitsch, Eduard August von
+                                (1798-1869)
+                        </ab>
+                        <p>Es ist schwer, ein klares Bild von diesem Tage zu geben, da die bisherige
+                            Geschäftsordnung völlig über den Haufen geworfen u noch keine neue an
+                            ihre Stelle getreten ist. Sr. Majestät wird von Anfragen, Meldungen pp
+                            bestürmt, ertheilt Audienzen, spricht mehre Male den PolizeiPräsidenten, nim̅t Deputationen an,
+                            arbeitet mit den einzelnen Ministern, wie Er den Berathungen des
+                            gesam̅ten Ministerii beiwohnt. - Tafel en
+                                retraite. Nachmittag geht das Treiben eben so fort wie es
+                            am Vormittage begon̅en; die Halle ist der Schau und Sam̅elplatz
+                            unzähliger Menschen, die zum Könige oder zu den Ministern wollen,
+                            worunter sich auch Leute einfinden, die weder da zu thun haben, noch
+                            dahin gehören u die theils die Neugierde, theils die Sucht sich wichtig
+                            zu machen, dahin ruft! - Gegen Abend inspiziert der König die gesam̅te
+                            Bürgerwehr u wird mit Jubel empfangen u entlassen. Thee u Souper en
+                            retraite. Nachts schlafen der General vForstner u säm̅tliche Flügel Adjutanten in der Halle auf
+                            Matratzen vor ihres Herrn Zim̅er, ihn wo möglich gegen jede eventuelle
+                            Unbill zu schützen. Verte! </p></div></div></div>
+            <div type="tag"><dateline><date when="1848-03-21"/>Berlin:
+                        Schloss</dateline>
+                <div type="journalText">
+                    <div type="writingSession" n="1">
+                        <ab type="author">
+                            Schoeler, Ludwig Johann Wilhelm AUGUST von
+                                (1798-1866)
+                        </ab>
+                        <p>Bewegter Tag in fortwährendem aufgeregtestem
+                            Getreibe. Alle Minister, die gegenwärtigen wie frühern, viele Fremde,
+                            berufene wie unberufene, von Seiner Majestät, theils im Kabinet, theils
+                            in der Halle empfangen. Nach 10 Uhr: <hi rendition="#u">Der Entschluß an
+                                die Spitze der Bewegung zu treten</hi>! Um ¾ 11 Uhr der König, nur
+                            von dem ganzen gerade gegenwärtigen und berittnen Gefolge, wie von den
+                            neuen Ministern begleitet, zu Pferde (<hi rendition="#uu">Alles</hi> mit
+                            den deutschen Farben, in Kokarden, Bändern und Schleifen) unter das
+                            Volk, von tausend und abertausend Vivat-Rufen begleitet, um ¾ 11 Uhr
+                            durch Portal N<hi rendition="#sup">r</hi> 1 über den SchloßPlatz,
+                            Schloßfreiheit die Schloß-Brücke zur alten Königswacht, am Opern Hause vorbei, durch die Behren- und
+                            Friedrichs-Straße über die Linden (Sonnenseite) nach der Universität und wieder zurück bis zum
+                            Cölnischen Markt und, dort umkehrend, ins Schloß. Um ¼ 2 Uhr abermaliger
+                            Ausritt, auf die Nachricht daß die Stim̅ung in andern Theilen der Stadt
+                            weniger günstig, durch die Königs-, neue Friedrich-Alexander-Straße über
+                            den gleichnamigen Platz, wieder durch die Königs-, dann
+                            Spandauer-Straße, vor dem Berliner Rathhause vorbei, nach dem Molken-Markt, über den
+                            Mühlen-Damm und, durch die breite Straße, zurück. An den verschiedenen
+                            Wacht-Posten, vor der Universität, der Stadtverordneten-Versam̅lung, und
+                            dem Rathhaus, herzliche Ansprachen, durch lebhaften Zuruf bëantwortet,
+                            vor letzten beiden auch Anreden durch die Behörden. - Diner um 3 Uhr,
+                            die
+                            Majestäten allein, die übrig.
+                            Gesellschaft an kleinen Tischen in der Halle. Nach Tische wiederum
+                            verschiedene Conferenzen und Besprechung. Gegen ½ 7 Uhr machten beide
+                            Majestäten, zuerst getrennt, durch beide Schloßhöfe, dann vereinigt zu
+                            den verschiedenen Wacht-Posten im in̅eren
+                                Schloße, einen Spazirgang. Überall von den lebhaftesten
+                            Huldigungs-Bezeugungen empfangen </p></div></div></div>
+            <div type="tag"><dateline><date when="1848-03-22"/>Berlin:
+                        Schloss</dateline>
+                <div type="journalText">
+                    <div type="writingSession" n="1">
+                        <ab type="author">
+                            Bonin, ADOLF Albert Ferdinand Karl Friedrich
+                                Leopold von (1803-1872)
+                        </ab>
+                        <p>Sr. Majestät empfangen früh 8 ½ Uhr den GRath Schönlein, arbeiteten dann zu verschiedenen Zeiten mit
+                            den Herrn Ministern und empfingen um 11 Uhr eine Deputation aus
+                                Breslau. Um 2 Uhr wurden die
+                            am 19<hi rendition="#sup">t</hi> Gefallenen im friedlichen Zuge
+                            beerdigt. 183 Särge passirten über den Schloßplatz. Sr. Majestät waren
+                            fast während des ganzen, volle 3 Stunden währenden Zuges, auf dem Balcon
+                            über dem Portal No. 1. Nach dem Diner (I.I. Majestäten dinirten ganz allein) machten Sr. Majestät
+                            eine Promenade auf den Schloßhöfen und inspicirten die dort
+                            aufgestellten Bürgerwachen, so wie später die im Garde du Corps Saal
+                            aufgestellte Wache der Künstler und das im Schweizersaal postirte
+                            Studentencorps. - I.I. Majestäten nahmen den Thee und das Souper allein
+                            ein, nachdem Sr. Majestät vorher noch längere Zeit mit den Ministern Gf
+                                Arnim und Herrn von Arnim conferirt hatten.
+                </p></div></div></div>
+        </body>
+    </text>
+</TEI>

@@ -2,8 +2,8 @@
 
 The whole ediarum stack on your own computer, started with one command: the platform with the
 Index and IDs apps, ediarum.webdav for oXygen, and the services behind them. The data comes
-from *edition humboldt digital*: its registers and the letters between Alexander von Humboldt
-and Johann Moritz Rugendas (see [Data and licence](#data-and-licence)). Everything runs
+from *edition humboldt digital* and includes 1) the letters between Alexander von Humboldt
+and Johann Moritz Rugendas and 2) the Index entries of people, places, etc mentioned in the letters (see [Data and licence](#data-and-licence)). Everything runs
 locally; nothing you change leaves your computer.
 
 The project is **app-led**: persons, places and institutions are kept and edited in the
@@ -27,6 +27,8 @@ platform   webdav       index          id         fileservice     (gitserver,
 - **Docker**: Docker Desktop (Windows with the WSL 2 backend, macOS) or Docker Engine with the
   Compose plugin (Linux). Give Docker at least 6 GB of memory (Docker Desktop → Settings →
   Resources) and keep about 5 GB of disk space free.
+  On Windows, Docker also needs hardware virtualization: turn on Intel VT-x or AMD-V (often
+  called "SVM Mode") in the BIOS/UEFI settings.
 - **git**. On Windows install [Git for Windows](https://git-scm.com/download/win): it brings
   **Git Bash**, the terminal all workshop scripts run in.
 - **oXygen XML Editor** or **oXygen XML Author**, version 24 or newer (the Developer edition has
@@ -240,6 +242,8 @@ In the same terminal as for the start (Windows: Git Bash):
 ## Troubleshooting
 
 - **"Docker is not running"**: start Docker Desktop and wait until it says it's running.
+- **Windows: Docker Desktop says virtualization is not enabled**: turn on Intel VT-x or
+  AMD-V/SVM in the BIOS/UEFI settings and restart the computer.
 - **Windows: `./start.sh` isn't found or opens in another program**: the terminal isn't Git Bash.
   Open Git Bash in this folder (see [Start](#start)) and run it there.
 - **"Port 1769 is already in use"**: another program uses the port. Stop it, or set another
@@ -383,6 +387,9 @@ the registry says `index_source_of_truth: app`. Then:
 → proxy.
 
 ## Data and licence
+
+This repository contains the files for the ediarum workshop, which will take place on November 11 and 12, 2026, in Berlin.
+The workshop is organized by the ediarum team as part of the Text+ consortium of the National Research Data Infrastructure (NFDI) and on behalf of the TELOTA Digital Humanities Department of the Berlin-Brandenburg Academy of Sciences and Humanities.
 
 The data is a selection from the TEI dataset of *edition humboldt digital*
 (https://github.com/telota/edition-humboldt-digital), © Berlin-Brandenburgische Akademie der

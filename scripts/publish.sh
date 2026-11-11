@@ -51,9 +51,10 @@ FORBIDDEN=(
   '-----BEGIN [A-Z ]*PRIVATE KEY-----'
 )
 
-# Hits that are fine, as `file:regex` matched against the reported line.
+# Hits that are fine, as `file-glob:regex` matched against the reported line.
 ALLOWED=(
   'scripts/publish.sh:.*'
+  'data/*.xml:<ref target="https?://www\.bbaw\.de/?">'   # the academy's public website in TEI headers
 )
 
 die() { echo "publish: $*" >&2; exit 1; }
@@ -117,7 +118,7 @@ for pattern in "${FORBIDDEN[@]}"; do
     text=${line#*:*:}
     allowed=0
     for rule in "${ALLOWED[@]}"; do
-      if [[ $file == "${rule%%:*}" ]] && grep -qE -- "${rule#*:}" <<<"$text"; then
+      if [[ $file == ${rule%%:*} ]] && grep -qE -- "${rule#*:}" <<<"$text"; then
         allowed=1
         break
       fi

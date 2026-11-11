@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:telota="http://www.telota.de" telota:doctype="adjutantenjournal" xml:id="${ediarum_id}">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title/>
+            </titleStmt>
+            <editionStmt>
+                <edition>
+                    <title>Anpassungsstrategien der späten mitteleuropäischen Monarchie am preußischen Beispiel 1786-1918</title>
+                </edition>
+            </editionStmt>
+            <publicationStmt>
+                <publisher>Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</publisher>
+				<availability>
+					<licence target="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA</licence>
+				</availability>
+            </publicationStmt>
+            <sourceDesc>
+               <msDesc rend="journal">
+                    <msIdentifier>
+                        <institution>${ask('Archivname', combobox, ('GStA PK':'GStA PK';'BArch Berlin':'BArch Berlin';'BArch Koblenz':'BArch Koblenz';'BArch-MA Freiburg':'BArch-MA Freiburg';'BLHA Potsdam':'BLHA Potsdam';'':'';), 'GStA PK')}</institution>
+                        <idno><idno type="shelfmark">${ask('Signatur', generic, '')}</idno></idno>
+                    </msIdentifier>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <creation>
+                <date from="" to=""/>
+            </creation>
+        </profileDesc>
+    </teiHeader>
+    <text type="journal">
+        <body>
+			<div type="tag">
+			    <dateline><date when="${ask('Tagesdatum (Format: JJJJ-MM-TT)')}"/></dateline>
+				<div type="journalText">
+					<ab type="author"></ab>
+					<p></p>
+				</div>
+			</div>
+        </body>
+    </text>
+</TEI>
